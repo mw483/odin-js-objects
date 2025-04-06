@@ -7,23 +7,40 @@
 </head>
 <body>
 <script>
-const books = [
+const people = [
     {
-      title: 'Book',
-      author: 'Name'
+      name: "Carly",
+      yearOfBirth: 2018,
+      /* yearOfDeath: 1970, */
     },
     {
-      title: 'Book2',
-      author: 'Name2'
-    }
+      name: "Ray",
+      yearOfBirth: 1962,
+      yearOfDeath: 2011,
+    },
+    {
+      name: "Jane",
+      yearOfBirth: 1912,
+      yearOfDeath: 1941,
+    },
   ]
 
-const getTheTitles = function(books) {
-    let bookTitles = books.map(book => book.title)
-    return bookTitles
+const currentYear = new Date().getFullYear();
+
+const findTheOldest = function(array) {
+   people.forEach((person) => {
+    if ("yearOfDeath" in person) {
+        person.age = person.yearOfDeath - person.yearOfBirth
+    }
+    else {
+        person.age = currentYear - person.yearOfBirth
+    }
+   }) 
+   people.sort((a,b) => b.age - a.age)
+   return people[0].name
 };
 
-alert(getTheTitles(books))
+alert(findTheOldest(people))
 </script>
 </body>
 </html>
