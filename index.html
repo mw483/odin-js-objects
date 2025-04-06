@@ -7,18 +7,23 @@
 </head>
 <body>
 <script>
-let string = "Animal loots foliated detail of stool lamina.";
-
-const palindromes = function (string) {
-    let stringArray = string.toUpperCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '').replace(/\s+/g, '').split('');
-    let stringArrayCopy = [];
-    for (let i = stringArray.length - 1; i >= 0; i--) {
-      stringArrayCopy.push(stringArray[i])
+const books = [
+    {
+      title: 'Book',
+      author: 'Name'
+    },
+    {
+      title: 'Book2',
+      author: 'Name2'
     }
-    return stringArray.join('') === stringArrayCopy.join('')
-}
+  ]
 
-alert(palindromes(string))
+const getTheTitles = function(books) {
+    let bookTitles = books.map(book => book.title)
+    return bookTitles
+};
+
+alert(getTheTitles(books))
 </script>
 </body>
 </html>
